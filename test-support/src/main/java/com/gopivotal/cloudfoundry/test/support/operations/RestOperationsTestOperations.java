@@ -125,6 +125,22 @@ final class RestOperationsTestOperations extends AbstractTestOperations {
                 Map.class, this.host);
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<String> springProfiles() {
+        this.logger.debug("Getting Spring profiles");
+        return (List<String>) this.restOperations.getForObject("http://{host}/spring-profiles",
+                List.class, this.host);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public Map<String, String> cloudProperties() {
+        this.logger.debug("Getting cloud properties");
+        return (Map<String, String>) this.restOperations.getForObject("http://{host}/cloud-properties",
+                Map.class, this.host);
+    }
+
     @Override
     public void waitForStart() {
         RetryTemplate.retry(this.connectionInterval, this.connectionTimeout, new RetryCallback() {

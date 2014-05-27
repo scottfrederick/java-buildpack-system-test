@@ -86,6 +86,20 @@ public interface TestOperations {
     Map<Object, Object> systemProperties();
 
     /**
+     * Returns the list of active Spring profiles
+     *
+     * @return the list of active Spring profiles
+     */
+    List<String> springProfiles();
+
+    /**
+     * Returns the list of active Spring profiles
+     *
+     * @return the list of active Spring profiles
+     */
+    Map<String, String> cloudProperties();
+
+    /**
      * Blocks until the test application has started successfully
      */
     void waitForStart();
@@ -119,5 +133,4 @@ public interface TestOperations {
      * Returns the URL that the rabbit service is connected to
      */
     URI rabbitUrl();
-
 }
